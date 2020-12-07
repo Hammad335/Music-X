@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_end_color"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+            <RelativeLayout
+                android:id="@+id/SearchBoxRelLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:background="@color/colorPrimary"
+                android:drawable="@drawable/gradient">
+
+
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/toolbar_layout" />
+
+                <ImageView
+                    android:id="@+id/searchBtn"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/colorPrimaryDark"
+                    android:paddingStart="4dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/colorAccent" />
+
+                <EditText
+                    android:id="@+id/searchBox"
+                    android:layout_width="290dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toEndOf="@+id/searchBtn"
+                    android:background="@color/colorPrimaryDark"
+                    android:drawable="@color/material_on_background_disabled"
+                    android:fontFamily="sans-serif-thin"
+                    android:hint="   Search Local Songs"
+                    android:textColor="#00BCD4"
+                    android:textColorHint="#F46495"  />
+
+            </RelativeLayout>
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bgggg">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:background="@mipmap/third"
+                    android:drawable="@mipmap/first"
+                    app:tabIndicator="@drawable/tab_indicator"
+                    app:tabIndicatorColor="?android:attr/panelBackground"
+                    app:tabIndicatorFullWidth="true"
+                    app:tabIndicatorGravity="center"
+                    app:tabIndicatorHeight="30dp"
+                    app:tabSelectedTextColor="#FFEB3B"
+                    app:tabTextColor="@color/material_on_primary_disabled" />
+            </androidx.viewpager.widget.ViewPager>
+
+</LinearLayout>
