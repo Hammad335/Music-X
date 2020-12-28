@@ -38,7 +38,6 @@ public class AlbumDetailsAdapter extends RecyclerView.Adapter<AlbumDetailsAdapte
         byte[] image= getAlbumArt(albumFiles.get(position).getPath());
 
         if(image != null){
-            Log.d("N", "onBindViewHolder: notNull");
             Glide.with(mContext)
                     .asBitmap()
                     .load(image)
