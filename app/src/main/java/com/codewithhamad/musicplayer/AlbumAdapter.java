@@ -1,5 +1,6 @@
 package com.codewithhamad.musicplayer;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaMetadataRetriever;
@@ -21,6 +22,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyHolder>{
 
     private Context mContext;
     private ArrayList<MusicFiles> albumFiles;
+    private int previousPosition= 0;
 
     public AlbumAdapter(Context mContext, ArrayList<MusicFiles> albumFiles) {
         this.mContext = mContext;
@@ -64,7 +66,27 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyHolder>{
             }
         });
 
+        if(position > previousPosition){
+            // going from top to botton
+            animate(holder, true);
+
+        }
+        else{
+            // going from bottom to top
+            animate(holder, false);
+        }
+        previousPosition= position;
     }
+
+    // added animations to recyclerView items
+    private void animate(MyHolder myHolder, boolean goesDown){
+
+        ObjectAnimator animatorTranslateY= ObjectAnimator.ofFloat(myHolder.itemView, "translationY",
+                goesDown ?150:-150, 0);
+        animatorTranslateY.setDuration(1000);
+        animatorTranslateY.start();
+    }
+
 
     @Override
     public int getItemCount() {
